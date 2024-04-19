@@ -1,0 +1,64 @@
+.container{
+    margin: 5px;
+}
+.container div{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+    border: solid 1px #d8d8d8;
+}
+
+.content{
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+}
+
+.content h3{
+    font-size: 2.5rem;
+}
+
+.content p{
+    font-size: 1.5rem;
+}
+
+.content h3, .content p{
+    color: #fff
+}
+
+/* layout styling */
+.main-layout{
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-layout .main-box{
+    flex: 2;
+}
+
+.right-panel{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    right: 0;
+    list-style: none;
+    height: 100%;
+    flex: 1;
+}
+
+.right-panel li{
+    min-width: 200px;
+    max-width: 300px;
+    min-height: 200px;
+}
+
+.bottom-panel{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    list-style: none;
+    width: 80%;
+}
