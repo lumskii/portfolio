@@ -1,60 +1,200 @@
-.container{
-    margin: 5px;
-}
-.container div{
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 10px;
-    border: solid 1px #495670;
+:root {
+  --surface-color: #fff;
+  --curve: 40;
+  --bgColor: #0a192f;
+  --foreColor: rgb(168, 178, 209);
 }
 
-.content{
-    padding: 20px;
-    height: 100%;
-    width: 100%;
+/* ---ModelBox Styling--- */
+
+.container {
+  margin: 5px;
+}
+.container div {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: calc(var(--curve) * 1px);
+  border: solid 1px #495670;
 }
 
-.content h3{
-    font-size: 2.5rem;
+.content {
+  padding: 20px;
+  height: 100%;
+  width: 100%;
 }
 
-.content p{
-    font-size: 1.5rem;
+.content h3 {
+  font-size: 2.5rem;
 }
 
-.content h3, .content p{
-    color: rgb(249, 188, 35)
+.content p {
+  font-size: 1.5rem;
+}
+
+.content h3,
+.content p {
+  color: rgb(249, 188, 35);
+}
+
+/* ---card styling--- */
+
+.cards {
+  margin: 5px;
+  padding: 0;
+  list-style-type: none;
+}
+
+.card {
+  position: relative;
+  display: block;
+  height: 100%;
+  border-radius: calc(var(--curve) * 1px);
+  border: solid 1px #495670;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.card_image {
+  display: grid;
+  width: 100%;
+  min-height: 24rem;
+}
+
+.card_overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  border-radius: calc(var(--curve) * 1px);
+  background-color: var(--bgColor);
+  transform: translateY(100%);
+  transition: 0.2s ease-in-out;
+}
+
+.card:hover .card_overlay {
+  transform: translateY(0);
+}
+
+.card_header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 2em;
+  border-radius: calc(var(--curve) * 1px) 0 0 0;
+  background-color: var(--bgColor);
+  transform: translateY(-100%);
+  transition: 0.2s ease-in-out;
+}
+
+.card_arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  z-index: 1;
+}
+
+.card_arc path {
+  fill: var(--bgColor);
+  d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+}
+
+.card:hover .card_header {
+  transform: translateY(0);
+}
+
+.card_thumb {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.card_title {
+  font-size: 1em;
+  margin: 0 0 0.3em;
+  color: rgb(249, 188, 35);
+}
+
+.card_status {
+  font-size: 0.8em;
+  color: var(--foreColor);
+}
+
+.card_description {
+  padding: 0 2em 2em;
+  margin: 0;
+  color: var(--surface-color);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 
 /* layout styling */
-.main-layout{
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-areas:"main side";
-    height: 100vh;
-    padding: 10px;
-    background-color: #0a192f;
-    gap: 10px;
+.body {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  grid-template-areas:
+    "header"
+    "main";
 }
 
-.main-box{
-    grid-area: main;
+.header {
+  background-color: var(--surface-color);
+  grid-area: header;
 }
 
-.right-panel{
-    grid-area: side;
-    list-style: none;
-    display: grid;
-    row-gap: 10px;
+.main {
+    background-color: var(--bgColor);
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+  padding: 25px;
+  grid-template-areas:
+    "b1 b1 b1 b2"
+    "b1 b1 b1 b3"
+    "b5 b6 b7 b4";
 }
 
-.bottom-panel{
-    display: flex;
-    position: absolute;
-    bottom: 2px;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-    width: 65%;
+.block {
+  background-color: #f6f7f9;
+  border-radius: calc(var(--curve) * 1px);
+}
+
+.block:nth-child(1) {
+  grid-area: b1;
+  display: grid;
+}
+
+.block:nth-child(2) {
+  grid-area: b2;
+  display: grid;
+}
+
+.block:nth-child(3) {
+  grid-area: b3;
+}
+
+.block:nth-child(4) {
+  grid-area: b4;
+}
+
+.block:nth-child(5) {
+  grid-area: b5;
+}
+
+.block:nth-child(6) {
+  grid-area: b6;
+}
+
+.block:nth-child(7) {
+  grid-area: b7;
 }
