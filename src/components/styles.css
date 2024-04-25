@@ -176,7 +176,6 @@
 
 .block:nth-child(2) {
   grid-area: b2;
-  display: grid;
 }
 
 .block:nth-child(3) {
